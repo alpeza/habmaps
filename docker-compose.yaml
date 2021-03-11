@@ -1,0 +1,12 @@
+version: "3.5"
+services:
+  #++ Eclipse mosquitto
+  mosquitto:
+    image: eclipse-mosquitto
+    hostname: mosquitto
+    container_name: mosquitto
+    ports:
+      - "1883:1883"
+      - "9001:9001"
+    #volumes:
+    #  - ./mosquitto/:/mosquitto/config/

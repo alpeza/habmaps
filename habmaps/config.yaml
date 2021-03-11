@@ -1,0 +1,10 @@
+# Configuracion de la comunicación con el broker mqtt
+mqtt:
+  url: 'localhost'
+  port: 1883
+db:
+  path: '../db.json'
+listeners:
+  FrameParser:
+    topic: 'frameparser'
+    file: 'myfile.log'
