@@ -6,5 +6,10 @@ db:
   path: '../db.json'
 listeners:
   FrameParser:
-    topic: 'frameparser'
-    file: 'myfile.log'
+    topic: 'hablistener' #Topic principal
+    broadcast:
+      - service: 'status'
+        topic: 'devices/status'
+      - service: 'tracespoly'
+        topic: '/devices/tracespoly'
+        samples: 50

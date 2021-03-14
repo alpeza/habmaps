@@ -1,0 +1,40 @@
+.msidebar{
+  position: fixed;
+  right: 0px;
+  top: 0px;
+  height: 100vh;
+  width: 25vw;
+  background: rgba(255,255,255,0.65);
+  box-shadow: 0px 0px 15px rgba(0,0,0,0.5);
+  z-index: 500;
+  overflow-y: scroll;
+  backdrop-filter: blur(6px);
+  max-height: 100vh;
+}
+
+.mwidget {
+  width: 100%;
+  max-height: 500px;
+  border-bottom: solid 1px grey;
+}
+
+.mwidget .thead-light{
+  opacity: 0.5;
+}
+
+
+::-webkit-scrollbar {
+    width: 0;
+    background: transparent;
+}
+
+
+.new-line {
+  white-space: pre-line;
+}
+
+.mainmap{
+  width : 100vw;
+  height: 100vh;
+  min-height: 100vh;
+}

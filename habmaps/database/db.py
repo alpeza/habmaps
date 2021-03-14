@@ -9,3 +9,6 @@ class dbHandler(object):
         super(dbHandler, self).__init__()
         self.conf = helpers.config.Config(file='../config.yaml').getConfig()['db']
         self.db = TinyDB(self.conf['path'])
+
+    def getQuery(self):
+        return Query()
