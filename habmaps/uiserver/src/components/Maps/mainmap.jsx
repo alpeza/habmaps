@@ -29,8 +29,8 @@ class ReactComponent extends React.Component {
       this.state = {
         name: props.name,
       };
-      console.log(props);
-      console.log(this.state.name)
+      //console.log(props);
+      //console.log(this.state.name)
     }
   render() {
     const { name } = this.state;
@@ -92,7 +92,11 @@ export default class MainMap extends React.Component {
               <div>
               <Polyline positions={item.data} />
                 <Marker  icon={<ReactComponent name= {item.id} />}  position={item.data.slice(-1).pop()}>
-                      <Popup>Lat: {item.data.slice(-1).pop()[0]}, Long: {item.data.slice(-1).pop()[1]}</Popup>
+                      <Popup>
+                        Lat: {item.data.slice(-1).pop()[0]}, Long: {item.data.slice(-1).pop()[1]}
+
+                        <a href={"https://www.google.com/maps/dir/?api=1&travelmode=driving&destination=" + item.data.slice(-1).pop()[0] + "," + item.data.slice(-1).pop()[1] } target="_blank" >GoogleMaps</a>
+                      </Popup>
                 </Marker>
               </div>
             ))

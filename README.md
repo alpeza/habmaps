@@ -69,3 +69,8 @@ Utilidad para el seguimiento por gps
   }
 }
 ```
+
+
+-----------
+Lat: 41.4499321, Long: 2.2233582
+https://www.google.com/maps/search/?api=1&query=41.4499321,-122.331639

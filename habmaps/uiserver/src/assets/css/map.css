@@ -4,8 +4,8 @@
   top: 0px;
   height: 100vh;
   width: 25vw;
-  background: rgba(255,255,255,0.65);
-  box-shadow: 0px 0px 15px rgba(0,0,0,0.5);
+  background: rgba(255,255,255,0.91);
+  box-shadow: 0px 0px 20px rgba(0,0,0,0.8);
   z-index: 500;
   overflow-y: scroll;
   backdrop-filter: blur(6px);
@@ -14,14 +14,22 @@
 
 .mwidget {
   width: 100%;
+  min-height: 200px;
   max-height: 500px;
   border-bottom: solid 1px grey;
 }
 
 .mwidget .thead-light{
-  opacity: 0.5;
+  opacity: 0.8;
 }
 
+.mwidget .card-stats .card-body{
+  padding: 10px;
+}
+
+.mwidget .card {
+  background: rgba(255,255,255,0.5);
+}
 
 ::-webkit-scrollbar {
     width: 0;

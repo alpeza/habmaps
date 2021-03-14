@@ -2,7 +2,7 @@ import MQListener
 import logging
 import json
 import traceback
-logging.basicConfig(level=logging.DEBUG)
+logging.basicConfig(level=logging.INFO)
 class FrameParser(MQListener.Listener):
     """
     Consumidor mqtt que se encarga de parsear y almacenar
@@ -29,11 +29,12 @@ class FrameParser(MQListener.Listener):
                 self.sendm(service['topic'],self.buffer_queries.getDeviceStatus())
             elif service['service'] == 'tracespoly':
                 self.sendm(service['topic'],self.buffer_queries.fetchLastNTracesPolyline(service['samples']))
-
+            elif service['service'] == 'lastframe':
+                self.sendm(service['topic'],self.buffer_queries.fetchLastTraces())
 
     def on_message(self,client, userdata, msg):
-        print("New message")
-        print(msg.payload)
+        logging.info("New message")
+        logging.debug(msg.payload)
         try:
             # 1.- Almacenamos la traza que ha llegado en el buffer.
             self.store(json.loads(msg.payload))
