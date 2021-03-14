@@ -3,6 +3,7 @@ import logging
 import sys
 sys.path.append('../')
 import helpers
+import restserver
 import database
 
 class Listener(object):
@@ -19,6 +20,8 @@ class Listener(object):
         # Inicializamos la base de datos
         self.dbh = database.db.dbHandler()
         self.whoami = self.whoami()
+        # Queries de buffer
+        self.buffer_queries = restserver.BufferService
 
     def whoami(self):
         return type(self).__name__
@@ -41,3 +44,14 @@ class Listener(object):
     def start(self):
         logging.info("Se inicia el lístener")
         self.client.loop_forever()
+
+    def sendMessage(self,topic,message):
+        logging.debug("sending message to " + topic)
+        logging.debug(message)
+        try:
+            self.client.publish(topic, message);
+            #self.client.disconnect();
+            return 0
+        except Exception as e:
+            logging.error(traceback.print_exc())
+            return 1

@@ -2,6 +2,7 @@ import MQListener
 import logging
 import json
 import traceback
+logging.basicConfig(level=logging.DEBUG)
 class FrameParser(MQListener.Listener):
     """
     Consumidor mqtt que se encarga de parsear y almacenar
@@ -10,18 +11,40 @@ class FrameParser(MQListener.Listener):
     def __init__(self):
         super(FrameParser, self).__init__()
         self.subscribe(self.lconfig['FrameParser']['topic'])
+        logging.info("*** FRAME PARSER STARTS ***")
+
+    def sendm(self,topic,msg):
+        try:
+            self.sendMessage(topic,json.dumps(msg))
+        except Exception as e:
+            logging.error(e)
+            logging.error("Error en parseo de json para " + topic)
+            logging.debug(msg)
+
+    def broadcast(self):
+        logging.info("Broadcasting ...")
+        services = self.lconfig['FrameParser']['broadcast']
+        for service in services:
+            if service['service'] == 'status':
+                self.sendm(service['topic'],self.buffer_queries.getDeviceStatus())
+            elif service['service'] == 'tracespoly':
+                self.sendm(service['topic'],self.buffer_queries.fetchLastNTracesPolyline(service['samples']))
+
 
     def on_message(self,client, userdata, msg):
-        logging.debug("New message:")
-        logging.debug(msg.payload)
+        print("New message")
+        print(msg.payload)
         try:
-            # Almacenamos la traza que ha llegado en el buffer.
+            # 1.- Almacenamos la traza que ha llegado en el buffer.
             self.store(json.loads(msg.payload))
+            # 2.- Realizamos las tareas de broadcasting
+            self.broadcast()
         except ValueError as vex:
             logging.error('Decoding JSON has failed :(')
             traceback.print_exc()
         except Exception as e:
             traceback.print_exc()
+
 
 
 fp=FrameParser()
