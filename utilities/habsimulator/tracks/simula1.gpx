@@ -1,0 +1,88 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<gpx version="1.1" creator="GPS Visualizer Sandbox https://www.gpsvisualizer.com/draw/" xmlns="http://www.topografix.com/GPX/1/1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.topografix.com/GPX/1/1 http://www.topografix.com/GPX/1/1/gpx.xsd">
+	<trk>
+		<name>miglobo1@car</name>
+		<desc>Length: 641.8 km (398.8 mi)</desc>
+		<extensions>
+			<line xmlns="http://www.topografix.com/GPX/gpx_style/0/2"><color>00ff00</color></line>
+		</extensions>
+		<trkseg>
+			<trkpt lat="38.2899366" lon="-0.8789063"></trkpt>
+			<trkpt lat="38.4707937" lon="-0.9448242"></trkpt>
+			<trkpt lat="38.6855098" lon="-1.0327148"></trkpt>
+			<trkpt lat="38.7883454" lon="-1.4831543"></trkpt>
+			<trkpt lat="39.087436" lon="-1.9555664"></trkpt>
+			<trkpt lat="39.4786056" lon="-1.9445801"></trkpt>
+			<trkpt lat="39.9434365" lon="-1.9445801"></trkpt>
+			<trkpt lat="40.3381705" lon="-2.142334"></trkpt>
+			<trkpt lat="40.5722401" lon="-2.6037598"></trkpt>
+			<trkpt lat="40.7971774" lon="-3.3068848"></trkpt>
+			<trkpt lat="41.1372961" lon="-3.416748"></trkpt>
+			<trkpt lat="41.4756602" lon="-3.416748"></trkpt>
+			<trkpt lat="41.6975259" lon="-3.3068848"></trkpt>
+			<trkpt lat="42.0819167" lon="-3.8891602"></trkpt>
+			<trkpt lat="42.0492926" lon="-4.8779297"></trkpt>
+		</trkseg>
+	</trk>
+	<trk>
+		<name>miglobo1@car2</name>
+		<desc>Length: 1316 km (817.7 mi)</desc>
+		<trkseg>
+			<trkpt lat="38.4105583" lon="-1.2744141"></trkpt>
+			<trkpt lat="38.9166815" lon="-1.1315918"></trkpt>
+			<trkpt lat="38.7026593" lon="-1.7468262"></trkpt>
+			<trkpt lat="39.3173004" lon="-1.5600586"></trkpt>
+			<trkpt lat="39.3002992" lon="-2.1972656"></trkpt>
+			<trkpt lat="39.7747695" lon="-1.6259766"></trkpt>
+			<trkpt lat="39.8169751" lon="-2.3950195"></trkpt>
+			<trkpt lat="40.22083" lon="-1.7907715"></trkpt>
+			<trkpt lat="40.1704789" lon="-2.5268555"></trkpt>
+			<trkpt lat="40.6306301" lon="-2.2192383"></trkpt>
+			<trkpt lat="40.4553072" lon="-2.9223633"></trkpt>
+			<trkpt lat="40.8886008" lon="-2.7905273"></trkpt>
+			<trkpt lat="40.8054938" lon="-3.5266113"></trkpt>
+			<trkpt lat="41.4097758" lon="-3.0212402"></trkpt>
+			<trkpt lat="41.2365112" lon="-3.7573242"></trkpt>
+			<trkpt lat="41.7958881" lon="-3.1311035"></trkpt>
+			<trkpt lat="41.6811176" lon="-3.8781738"></trkpt>
+			<trkpt lat="42.1552595" lon="-3.5595703"></trkpt>
+			<trkpt lat="41.902277" lon="-4.284668"></trkpt>
+			<trkpt lat="42.3423053" lon="-4.2626953"></trkpt>
+			<trkpt lat="41.9186289" lon="-4.7460938"></trkpt>
+			<trkpt lat="42.3666617" lon="-4.7241211"></trkpt>
+		</trkseg>
+	</trk>
+	<trk>
+		<name>miglobo1</name>
+		<desc>Length: 991.9 km (616.3 mi)</desc>
+		<extensions>
+			<line xmlns="http://www.topografix.com/GPX/gpx_style/0/2"><color>0000ff</color></line>
+		</extensions>
+		<trkseg>
+			<trkpt lat="38.5911138" lon="-1.439209"></trkpt>
+			<trkpt lat="39.0277188" lon="-1.3952637"></trkpt>
+			<trkpt lat="39.3427944" lon="-1.3842773"></trkpt>
+			<trkpt lat="39.681826" lon="-2.3071289"></trkpt>
+			<trkpt lat="39.6395376" lon="-2.713623"></trkpt>
+			<trkpt lat="39.935013" lon="-2.9223633"></trkpt>
+			<trkpt lat="40.2124407" lon="-2.8674316"></trkpt>
+			<trkpt lat="40.6556387" lon="-2.5488281"></trkpt>
+			<trkpt lat="40.9301152" lon="-2.3181152"></trkpt>
+			<trkpt lat="41.2612915" lon="-2.3291016"></trkpt>
+			<trkpt lat="41.4262532" lon="-2.5708008"></trkpt>
+			<trkpt lat="41.5332541" lon="-2.8674316"></trkpt>
+			<trkpt lat="41.1207456" lon="-3.6584473"></trkpt>
+			<trkpt lat="40.8470604" lon="-4.0429688"></trkpt>
+			<trkpt lat="41.1041909" lon="-4.4055176"></trkpt>
+			<trkpt lat="41.4674283" lon="-4.3505859"></trkpt>
+			<trkpt lat="41.6564972" lon="-4.1638184"></trkpt>
+			<trkpt lat="42.0982224" lon="-3.3288574"></trkpt>
+			<trkpt lat="42.4153461" lon="-2.9772949"></trkpt>
+			<trkpt lat="42.6339587" lon="-3.3837891"></trkpt>
+			<trkpt lat="42.6097062" lon="-3.8562012"></trkpt>
+			<trkpt lat="42.5530803" lon="-4.2956543"></trkpt>
+			<trkpt lat="42.488302" lon="-4.6911621"></trkpt>
+			<trkpt lat="42.4234565" lon="-4.9108887"></trkpt>
+		</trkseg>
+	</trk>
+</gpx>

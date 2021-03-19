@@ -10,13 +10,15 @@ import AdminLayout from "layouts/Admin.js";
 import AuthLayout from "layouts/Auth.js";
 import MapLayout from "layouts/Map.jsx";
 
+/*
+<Route path="/admin" render={(props) => <AdminLayout {...props} />} />
+<Route path="/auth" render={(props) => <AuthLayout {...props} />} />
+*/
 ReactDOM.render(
   <BrowserRouter>
     <Switch>
-      <Route path="/admin" render={(props) => <AdminLayout {...props} />} />
-      <Route path="/auth" render={(props) => <AuthLayout {...props} />} />
       <Route path="/mapa" render={(props) => <MapLayout {...props} />} />
-      <Redirect from="/" to="/admin/index" />
+      <Redirect from="/" to="/mapa" />
     </Switch>
   </BrowserRouter>,
   document.getElementById("root")

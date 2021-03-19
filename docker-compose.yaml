@@ -1,5 +1,29 @@
 version: "3.5"
 services:
+  #++ Eclipse Habmaps UI
+  habmaps:
+    image: habmaps:1.0.0
+    ports:
+      - "5000:5000"
+      - "3000:3000"
+    environment:
+      HABMAPS_CONFIGURATION: |
+        mqtt:
+          url: 'mosquitto'
+          port: 1883
+        db:
+          path: '../db.json'
+        listeners:
+          FrameParser:
+            topic: 'hablistener'
+            broadcast:
+              - service: 'status'
+                topic: 'devices/status'
+              - service: 'tracespoly'
+                topic: '/devices/tracespoly'
+                samples: 50
+              - service: 'lastframe'
+                topic: '/devices/lastframe'
   #++ Eclipse mosquitto
   mosquitto:
     image: eclipse-mosquitto:latest
@@ -10,3 +34,4 @@ services:
       - "8081:9001"
     volumes:
       - ./mosquitto/mosquitto.conf:/mosquitto/config/mosquitto.conf
+  #++ Elastic
