@@ -13,6 +13,10 @@ Utilidad para el seguimiento por gps
 `curl -s -X GET localhost:5000/data/traces/hab/unhubid`
 
 
+Eliminar trazas
+`curl -s -X DELETE localhost:5000/data/traces/basestation/unaestacion`
+
+
 `curl -s -X GET localhost:5000/data/fetchlast`
 
 `curl -s -X GET localhost:5000/data/fetchlast| jq '.[].lastseen'`

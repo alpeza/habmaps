@@ -82,3 +82,15 @@ class FetchLastNTracesPolyline(Resource):
             logging.error("*** Error al tratar de fetchear la polyline ***")
             logging.error(e)
         return POLYLINE_RESPONSE
+
+class RemoveTrace(Resource):
+    """
+    Elimina la traza de un dispositivo
+    """
+    def delete(self,baseballon,tname):
+        global POLYLINE_RESPONSE
+        try:
+            return bs.removeTrace(baseballon,tname)
+        except Exception as e:
+            logging.error("*** Error al tratar de eliminar "+baseballon+" -> "+tname+" ***")
+            logging.error(e)

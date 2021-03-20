@@ -15,6 +15,13 @@ def truncateAllFromTable(tname):
     table = dbh.db.table(tname)
     return table.truncate()
 
+def removeTrace(baseballon,tname):
+    """Elimina una determinada traza"""
+    dbh = database.db.dbHandler()
+    table = dbh.db.table('FrameParser')
+    q = dbh.getQuery()
+    return table.remove((q.type == 'frame') & (q[baseballon].id == tname))
+
 def getFieldData(field):
     dbh = database.db.dbHandler()
     q = dbh.getQuery()

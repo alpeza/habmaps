@@ -22,11 +22,14 @@ def after_request(response):
 api.add_resource(BufferEndPoints.DataBase, '/data/<string:tname>')
 api.add_resource(BufferEndPoints.FetchDistinct, '/data/distinct/<string:item>')
 api.add_resource(BufferEndPoints.FetchDataFrom, '/data/traces/<string:baseballon>/<string:name>')
+api.add_resource(BufferEndPoints.RemoveTrace, '/data/traces/<string:baseballon>/<string:tname>')
+
 
 api.add_resource(BufferEndPoints.FetchLastTraces, '/devices/lastframe')
 api.add_resource(BufferEndPoints.DevicesStatus, '/devices/status')
 api.add_resource(BufferEndPoints.FetchLastNTraces, '/devices/traces/<string:ntraces>')
 api.add_resource(BufferEndPoints.FetchLastNTracesPolyline, '/devices/tracespoly/<string:ntraces>')
+
 
 
 
