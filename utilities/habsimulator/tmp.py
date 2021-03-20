@@ -17,7 +17,7 @@ def runDevice(data):
                 print(d)
                 cou += 1
             mt.sendMessage(d)
-            #time.sleep(0.1)
+            time.sleep(3)
 
 gpxp = GPXParser.GPXParser('tracks/simula1.gpx')
 simulaciones = gpxp.getTracks()
