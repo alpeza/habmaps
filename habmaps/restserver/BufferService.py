@@ -65,13 +65,13 @@ def fetchLastTraces():
     #3.- Recuperamos las trazas de estaciones base
     for bs in basestationsid:
         lstb = getTracesForBaseOrBallon('basestation',bs)[-1]
+        obj['basestations'].append({
+            "id": lstb['basestation']['id'],
+            "pos": lstb['basestation']['pos'],
+            "ftime": lstb['ftime']
+        })
         try:
             lststs = getStatusForBase(bs)[-1]
-            obj['basestations'].append({
-                "id": lstb['basestation']['id'],
-                "pos": lstb['basestation']['pos'],
-                "ftime": lstb['ftime']
-            })
             obj['statusframes'].append(lststs)
         except Exception as e:
             logging.error(e)
@@ -125,11 +125,9 @@ def getDeviceStatus():
         fmt = '%Y-%m-%d %H:%M:%S'
         statse = getStatusForBase(bs['id'])
         if len(statse) == 0:
-            statse = 0
+            statse = datetime(2000, 4, 13)
         else:
             statse = datetime.strptime(statse[-1]['ftime'], fmt)
-        print(statse)
-        print(bs)
         latest_seen = max([datetime.strptime(bs['ftime'], fmt), statse])
         diff = _calcDateDiferece(datetime.now(),latest_seen,strformat=False)
         if diff <= 3:

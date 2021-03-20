@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <gpx version="1.1" creator="GPS Visualizer Sandbox https://www.gpsvisualizer.com/draw/" xmlns="http://www.topografix.com/GPX/1/1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.topografix.com/GPX/1/1 http://www.topografix.com/GPX/1/1/gpx.xsd">
 	<trk>
-		<name>miglobo1@car</name>
+		<name>superhab@unaestacion</name>
 		<desc>Length: 641.8 km (398.8 mi)</desc>
 		<extensions>
 			<line xmlns="http://www.topografix.com/GPX/gpx_style/0/2"><color>00ff00</color></line>
@@ -25,7 +25,7 @@
 		</trkseg>
 	</trk>
 	<trk>
-		<name>miglobo1@car2</name>
+		<name>superhab@estaesotraesta</name>
 		<desc>Length: 1316 km (817.7 mi)</desc>
 		<trkseg>
 			<trkpt lat="38.4105583" lon="-1.2744141"></trkpt>
@@ -53,7 +53,7 @@
 		</trkseg>
 	</trk>
 	<trk>
-		<name>miglobo1</name>
+		<name>superhab</name>
 		<desc>Length: 991.9 km (616.3 mi)</desc>
 		<extensions>
 			<line xmlns="http://www.topografix.com/GPX/gpx_style/0/2"><color>0000ff</color></line>

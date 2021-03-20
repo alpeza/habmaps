@@ -8,13 +8,15 @@ import { Polyline, MapContainer, TileLayer, Marker, Popup } from 'react-leaflet'
 import MapSideBar from "components/Maps/sidebar.jsx";
 import DevicesList from "components/Maps/devicesListWidget.jsx";
 import SignalsWidget from "components/Maps/signalsWidget.jsx";
+import PredictHabWidget from "components/Maps/predicthabWidget.jsx";
+
 import MainMap from "components/Maps/mainmap.jsx";
 
 //< MainMap />
 const MapViewer = (props) => {
   const mainContent = React.useRef(null);
-  const components = [{name:'lista',widget:DevicesList},
-                      {name:'signals',widget:SignalsWidget}]
+  const components = [{name:'DevicesList',widget:DevicesList},
+                      {name:'SignalsWidget',widget:SignalsWidget}]
   return (
     <div>
       < MapSideBar items= {components}></MapSideBar>

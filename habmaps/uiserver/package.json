@@ -67,8 +67,10 @@
     "react-loader-spinner": "^4.0.0",
     "react-router-dom": "5.2.0",
     "react-scripts": "4.0.1",
+    "react-sliding-side-panel": "^2.0.3",
     "react-websocket": "^2.1.0",
-    "reactstrap": "8.9.0"
+    "reactstrap": "8.9.0",
+    "string-to-color": "^2.2.2"
   },
   "devDependencies": {
     "gulp": "4.0.2",

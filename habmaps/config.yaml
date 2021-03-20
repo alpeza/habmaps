@@ -12,6 +12,6 @@ listeners:
         topic: 'devices/status'
       - service: 'tracespoly'
         topic: '/devices/tracespoly'
-        samples: 50
+        samples: 5000
       - service: 'lastframe'
         topic: '/devices/lastframe'
