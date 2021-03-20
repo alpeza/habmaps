@@ -10,6 +10,8 @@ import AdminLayout from "layouts/Admin.js";
 import AuthLayout from "layouts/Auth.js";
 import MapLayout from "layouts/Map.jsx";
 
+import 'react-notifications/lib/notifications.css';
+
 /*
 <Route path="/admin" render={(props) => <AdminLayout {...props} />} />
 <Route path="/auth" render={(props) => <AuthLayout {...props} />} />
@@ -18,6 +20,7 @@ ReactDOM.render(
   <BrowserRouter>
     <Switch>
       <Route path="/mapa" render={(props) => <MapLayout {...props} />} />
+      <Route path="/admin" render={(props) => <AdminLayout {...props} />} />
       <Redirect from="/" to="/mapa" />
     </Switch>
   </BrowserRouter>,

@@ -5,6 +5,7 @@ import Register from "views/examples/Register.js";
 import Login from "views/examples/Login.js";
 import Tables from "views/examples/Tables.js";
 import Icons from "views/examples/Icons.js";
+import Operations from "views/Operations.js";
 
 
 var routes = [
@@ -57,6 +58,56 @@ var routes = [
     component: Register,
     layout: "/auth",
   },
+];
+
+
+var routes = [
+  {
+    path: "/index",
+    name: "Operations",
+    icon: "ni ni-folder-17 text-blue",
+    component: Operations,
+    layout: "/admin",
+  },
+  {
+    path: "/jobs",
+    name: "Jobs",
+    icon: "ni ni-spaceship text-green",
+    component: Icons,
+    layout: "/admin",
+  },
+  {
+    path: "/settings",
+    name: "Settings",
+    icon: "ni ni-settings text-yellow",
+    component: Icons,
+    layout: "/admin",
+  },
+  {
+    path: "/",
+    name: "Map",
+    icon: "ni ni-map-big text-red",
+    component: Icons,
+    layout: "/mapa",
+  }
+];
+
+
+var routes = [
+  {
+    path: "/index",
+    name: "Operations",
+    icon: "ni ni-folder-17 text-blue",
+    component: Operations,
+    layout: "/admin",
+  },
+  {
+    path: "/",
+    name: "Map",
+    icon: "ni ni-map-big text-red",
+    component: Icons,
+    layout: "/mapa",
+  }
 ];
 
 export default routes;

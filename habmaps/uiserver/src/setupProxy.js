@@ -8,6 +8,13 @@ module.exports = function(app) {
       changeOrigin: true,
     })
   );
+  app.use(
+    '/data/*',
+    createProxyMiddleware({
+      target: "http://localhost:5000",
+      changeOrigin: true,
+    })
+  );
   //Ws
   app.use(
     '/socket',
