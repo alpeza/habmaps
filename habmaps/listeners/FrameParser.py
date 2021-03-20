@@ -2,7 +2,8 @@ import MQListener
 import logging
 import json
 import traceback
-logging.basicConfig(level=logging.INFO)
+import ValidateSchema as vs
+logging.basicConfig(level=logging.ERROR)
 class FrameParser(MQListener.Listener):
     """
     Consumidor mqtt que se encarga de parsear y almacenar
@@ -24,6 +25,7 @@ class FrameParser(MQListener.Listener):
     def broadcast(self):
         logging.info("Broadcasting ...")
         services = self.lconfig['FrameParser']['broadcast']
+        # Todo el consumo de cpu :/
         for service in services:
             if service['service'] == 'status':
                 self.sendm(service['topic'],self.buffer_queries.getDeviceStatus())
@@ -36,10 +38,14 @@ class FrameParser(MQListener.Listener):
         logging.info("New message")
         logging.debug(msg.payload)
         try:
-            # 1.- Almacenamos la traza que ha llegado en el buffer.
-            self.store(json.loads(msg.payload))
-            # 2.- Realizamos las tareas de broadcasting
-            self.broadcast()
+            # 0.- Validamos el mensaje que llega
+            if vs.msg_validate(msg.payload):
+                # 1.- Almacenamos la traza que ha llegado en el buffer.
+                self.store(json.loads(msg.payload))
+                # 2.- Realizamos las tareas de broadcasting
+                self.broadcast()
+            else:
+                logging.warning("The message '" + str(msg.payload) + "' is invalid, please check the json structure")
         except ValueError as vex:
             logging.error('Decoding JSON has failed :(')
             traceback.print_exc()

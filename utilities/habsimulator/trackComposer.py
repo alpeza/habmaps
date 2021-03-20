@@ -21,13 +21,13 @@ def genTracks(simulations):
 
 def gettrack(habid,bsid,habll,bsll):
     track = {
-     "type": "frame",
+      "type": "frame",
       "ftime": ss._fetchTime(),
       "hab":{
         "id": habid,
         "pos":{
-          "lat": habll[0],
-          "lon": habll[1]
+          "lat": float(habll[0]),
+          "lon": float(habll[1])
         },
         "payload": [
           {
@@ -51,8 +51,8 @@ def gettrack(habid,bsid,habll,bsll):
       "basestation":{
         "id": bsid,
         "pos":{
-          "lat": bsll[0],
-          "lon": bsll[1]
+          "lat": float(bsll[0]),
+          "lon": float(bsll[1])
         }
       }
     }
