@@ -74,3 +74,8 @@ Utilidad para el seguimiento por gps
 -----------
 Lat: 41.4499321, Long: 2.2233582
 https://www.google.com/maps/search/?api=1&query=41.4499321,-122.331639
+
+
+Predicthub
+
+http://predict.cusf.co.uk/api/v1/?launch_latitude="+str(lat)+"&launch_longitude="+str(lon)+"&launch_datetime=2015-09-"+str(day)+"T"+str(hour)+"%3A00%3A00%2B01:00&ascent_rate=5&burst_altitude=30000&descent_rate=5
