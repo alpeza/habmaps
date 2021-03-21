@@ -4,6 +4,9 @@ mqtt:
   port: 1883
 db:
   path: '../db.json'
+ui:
+  users:
+    - admin: admin
 listeners:
   FrameParser:
     topic: 'hablistener' #Topic principal

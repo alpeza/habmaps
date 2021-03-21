@@ -34,6 +34,7 @@ import Dropdown from 'react-dropdown';
 import 'react-dropdown/style.css';
 import {NotificationContainer, NotificationManager} from 'react-notifications';
 import 'react-notifications/lib/notifications.css';
+import ReactTerminal from 'react-terminal-component';
 class Cleaner extends React.Component{
   constructor(props) {
     super(props);
