@@ -13,7 +13,8 @@ COPY habmaps/ ./habmaps
 # 2.1- Instalamos la app web
 ENV PATH /usr/src/app/habmaps/uiserver/node_modules/.bin:$PATH
 RUN cd ./habmaps/uiserver &&\
-    npm install
+    npm install &&\
+    npm run build
 
 # 2.2- Instalamos la restapi
 RUN cd ./habmaps &&\

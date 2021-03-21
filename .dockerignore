@@ -1,2 +1,4 @@
 __pycache__
+*.pyc
 habmaps/uiserver/node_modules
+habmaps/uiserver/build

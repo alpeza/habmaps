@@ -27,6 +27,7 @@ services:
                 samples: 5000
               - service: 'lastframe'
                 topic: '/devices/lastframe'
+  #************************************
   #++ Eclipse mosquitto
   mosquitto:
     image: eclipse-mosquitto:latest
@@ -37,4 +38,21 @@ services:
       - "8081:9001"
     volumes:
       - ./mosquitto/mosquitto.conf:/mosquitto/config/mosquitto.conf
-  #++ Elastic
+  #************************************
+  #++ Elastic ++
+  elasticsearch:
+    image: docker.elastic.co/elasticsearch/elasticsearch:7.11.2
+    environment:
+      - cluster.name=docker-cluster
+      - bootstrap.memory_lock=true
+      - "ES_JAVA_OPTS=-Xms512m -Xmx512m"
+    ulimits:
+      memlock:
+        soft: -1
+        hard: -1
+    ports:
+      - "9200:9200"
+  kibana:
+    image: docker.elastic.co/kibana/kibana:7.11.2
+    ports:
+      - "5601:5601"
