@@ -13,15 +13,18 @@ services:
           port: 1883
         db:
           path: '../db.json'
+        ui:
+          users:
+            - admin: admin
         listeners:
           FrameParser:
-            topic: 'hablistener'
+            topic: 'hablistener' #Topic principal
             broadcast:
               - service: 'status'
                 topic: 'devices/status'
               - service: 'tracespoly'
                 topic: '/devices/tracespoly'
-                samples: 50
+                samples: 5000
               - service: 'lastframe'
                 topic: '/devices/lastframe'
   #++ Eclipse mosquitto
