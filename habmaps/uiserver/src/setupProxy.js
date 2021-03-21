@@ -16,6 +16,14 @@ module.exports = function(app) {
     })
   );
   app.use(
+    '/proc/*',
+    createProxyMiddleware({
+      target: "http://localhost:5000",
+      changeOrigin: true,
+    })
+  );
+
+  app.use(
     '/authen/*',
     createProxyMiddleware({
       target: "http://localhost:5000",

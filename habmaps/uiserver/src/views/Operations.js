@@ -35,6 +35,8 @@ import 'react-dropdown/style.css';
 import {NotificationContainer, NotificationManager} from 'react-notifications';
 import 'react-notifications/lib/notifications.css';
 import ReactTerminal from 'react-terminal-component';
+import Statusx from "components/Services/Status.jsx";
+
 class Cleaner extends React.Component{
   constructor(props) {
     super(props);
@@ -187,7 +189,10 @@ const Operations  = (props) => {
       <Container className="mt--7" fluid>
         <Row>
         </Row>
+          <Statusx></Statusx>
+          
           <Cleaner></Cleaner>
+
       </Container>
     </>
   );

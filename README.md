@@ -41,13 +41,20 @@ Utilidad para el seguimiento por gps
 `curl -s -X GET localhost:5000/devices/tracespoly/10 | jq`
 
 
-`curl -X POST -d '{ "user":"pepe","password":"root" }' localhost:5000/login`
+### Autenticación y gestión de Tokens
 
+`curl -X POST -d '{ "user":"pepe","password":"root" }' localhost:5000/login`
 
 `curl -s -X POST -d '{ "token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJsb2dnZWRJbkFzIjoiYWRtaW4iLCJleHAiOjE2MTYzMzIxMDh9.1foUn3RivBuypW2FScmb3PBKEX9KA2BvVeA_K0805mo"}' localhost:5000/authen/validate | jq`
 
+
 ### Gestion de procesos
 
+`curl -X GET -s localhost:5000/proc/list | jq`
+
+`curl -X PUT -s localhost:5000/proc/action/stop/mqttlistener | jq`
+
+`curl -X PUT -s localhost:5000/proc/action/stop/mqttlistener | jq`
 
 
 ## Protocolo

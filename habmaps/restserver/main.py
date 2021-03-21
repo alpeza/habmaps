@@ -8,6 +8,7 @@ api = Api(app)
 # Importamos los endpoints
 import BufferEndPoints
 import UsersEndPoints
+import ProcEndPoints
 from flask_cors import CORS, cross_origin
 #cors = CORS(app, resources={"*": {"origins": "*","methods": "*"}})
 @app.after_request
@@ -34,6 +35,12 @@ api.add_resource(BufferEndPoints.FetchLastNTracesPolyline, '/devices/tracespoly/
 #*** UsersEndPoints ***
 api.add_resource(UsersEndPoints.Login, '/authen/login')
 api.add_resource(UsersEndPoints.Validate, '/authen/validate')
+
+
+#*** ProcEndPoints ***
+api.add_resource(ProcEndPoints.List, '/proc/list')
+api.add_resource(ProcEndPoints.Action, '/proc/action/<string:action>/<string:id>')
+
 
 if __name__ == '__main__':
     app.run(debug=True,host='0.0.0.0')
