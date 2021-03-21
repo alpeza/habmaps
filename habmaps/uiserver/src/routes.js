@@ -40,7 +40,7 @@ var routes = [
   }
 ];
 
-
+/*
 var routes = [
   {
     path: "/index",
@@ -63,6 +63,6 @@ var routes = [
     component: Icons,
     layout: "/mapa",
   }
-];
+];*/
 
 export default routes;

@@ -97,7 +97,7 @@ export default class Loginx extends React.Component {
                       <Input
                         placeholder="Email"
                         type="email"
-                        autoComplete="new-email"
+                        autoComplete="username"
                         onChange={this.handleUserChange}
                       />
                     </InputGroup>
@@ -112,7 +112,7 @@ export default class Loginx extends React.Component {
                       <Input
                         placeholder="Password"
                         type="password"
-                        autoComplete="new-password"
+                        autoComplete="current-password"
                         onChange={this.handlePasswordChange}
                       />
                     </InputGroup>
