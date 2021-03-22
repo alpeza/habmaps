@@ -16,11 +16,3 @@ chmod +x prepare.sh
 ```
 
 3.- Lanzamos
-
-4.-
-
-```
-git clone https://github.com/alpeza/habmaps.git
-cd habmaps
-sudo docker-compose up -d
-```

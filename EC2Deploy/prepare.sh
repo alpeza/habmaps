@@ -5,7 +5,7 @@ set +x
 
 echo "Instalando dependencias ..."
 set -x
-sudo apt-get install \
+sudo apt-get install -y \
     apt-transport-https \
     ca-certificates \
     curl \
@@ -25,7 +25,7 @@ echo "Instalando docker ..."
 
 set -x
 sudo apt-get update
-sudo apt-get install docker-ce docker-ce-cli containerd.io
+sudo apt-get install -y docker-ce docker-ce-cli containerd.io
 set +x
 
 echo "Instalando compose ..."
@@ -37,5 +37,14 @@ set +x
 
 echo "Instalando git ..."
 set -x
-sudo apt install git
+sudo apt install -y git
+set +x
+
+echo "Deployando ..."
+set -x
+git clone https://github.com/alpeza/habmaps.git
+sudo chmod -R 777 habmaps
+cd habmaps
+sudo docker-compose up -d
+sudo docker logs -f habmaps_habmaps_1
 set +x

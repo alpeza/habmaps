@@ -7,7 +7,7 @@ def runDevice(data):
     bs = data[0]['basestation']['id']
     print("--> Started: " + bs)
     mt = mtrack.MapTracker(id="mi-estacion-base",
-                       mqtt_url="localhost",
+                       mqtt_url="3.1.8.208",
                        mqtt_port=1883)
 
     cou=0
