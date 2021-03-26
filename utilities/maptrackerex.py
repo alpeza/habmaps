@@ -5,7 +5,7 @@ import MapTracker.MapTracker as mtrack
 import MapTracker.simsignals as ss
 # 2.- Instanciamos el tracker
 mt = mtrack.MapTracker(id="mi-estacion-base",
-                   mqtt_url="localhost",
+                   mqtt_url="18.140.68.83",
                    mqtt_port=1883)
 
 # 3.- Inicializamos el HeartBeat
