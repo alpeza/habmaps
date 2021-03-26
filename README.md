@@ -105,4 +105,5 @@ Se trata del mensaje que ha de enviar la estación base hacia el MQTT.
 }
 ```
 
-Podemos encontrar ejemplos en [utilities](utilities).
+Podemos encontrar ejemplos en [utilities](utilities). Este es
+un ejemplo de [cliente](utilities/maptrackerex.py)
