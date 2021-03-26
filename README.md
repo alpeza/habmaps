@@ -20,58 +20,89 @@ docker-compose up -d
 
 > Para descargar en una EC2 de Amazon puede seguir las siguientes [instrucciones](EC2Deploy/README.md)
 
-## Protocolo
+# Protocolo
+
+Distinguimos los siguientes mensajes válidos para envíar al MQTT.
+
 
 ### HeartBeat
+Se trata de un mensaje que indica que la estación base está
+viva.
+* __type__: health
 
 ```json
 {
   "type": "health",
-  "ftime": "asdf",
-  "id": "asdf"
+  "ftime": "2021-03-26 15:09:10",
+  "id": "miestacionbase"
 }
 ```
 
 
 ### Trama
 
+Se trata del mensaje que ha de enviar la estación base hacia el MQTT.
+
+* __type__: frame
+* __ftime__: Timestamp en el que se registró la muestra
+* __hab__: Objeto de definición del hab
+    * __id__: Identificador del globo
+    * __pos__: Objeto de posición del globo con la latitud y longitud
+* __payload__ lista de valores de sensores. Si no hay sensores dejar a blanco 
+    `payload : []`
+* __basestation__: Datos de la estación base que registra la trama.
+    * __id__: Identificador de la estación base.
+    * __pos__: Latitud y longitud de la estación base.
+    Dejar a 0 si no se va a emplear esta modalidad:
+      
+      ```json 
+        "basestation": {
+          "id": "estaesotraesta",
+          "pos": {
+             "lat": 0,
+             "lon": 0
+          }
+      }
+      ```
+      
+
 ```json
 {
   "type": "frame",
-  "ftime": "asdf",
-  "hab":{
-    "id": 1,
-    "pos":{
-      "lat": 20,
-      "lon": 10
+  "ftime": "2021-03-26 15:09:10",
+  "hab": {
+    "id": "elIdDeMiHab",
+    "pos": {
+      "lat": 38.5911138,
+      "lon": -1.439209
     },
     "payload": [
       {
-        "name": "mysignal1",
-        "value": 12.5
+        "name": "high",
+        "value": 80
       },
       {
-        "name": "mysignal2",
-        "value": 12.5
+        "name": "TempInterior",
+        "value": "17.477750802022154"
+      },
+      {
+        "name": "TempExterior",
+        "value": "7.662387109586051"
+      },
+      {
+        "name": "Presion",
+        "value": "11.992894902660938"
       }
     ]
   },
-  "basestation":{
-    "id": 1,
-    "pos":{
-      "lat": 10,
-      "lon": 20
+  "basestation": {
+    "id": "estaesotraesta",
+    "pos": {
+      "lat": 38.4105583,
+      "lon": -1.2744141
     }
   }
 }
 ```
 
-
------------
-Lat: 41.4499321, Long: 2.2233582
-https://www.google.com/maps/search/?api=1&query=41.4499321,-122.331639
-
-
-Predicthub
-
-http://predict.cusf.co.uk/api/v1/?launch_latitude="+str(lat)+"&launch_longitude="+str(lon)+"&launch_datetime=2015-09-"+str(day)+"T"+str(hour)+"%3A00%3A00%2B01:00&ascent_rate=5&burst_altitude=30000&descent_rate=5
+Podemos encontrar ejemplos en [utilities](utilities).
