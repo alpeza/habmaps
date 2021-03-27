@@ -1,8 +1,10 @@
-version: "3.5"
+version: "3"
 services:
   #++ Eclipse Habmaps UI
   habmaps:
     image: alpeza/alpezahabmaps:latest
+    depends_on:
+      - mosquitto
     ports:
       - "5000:5000"
       - "80:3000"
@@ -41,6 +43,7 @@ services:
       - "8081:9001"
     volumes:
       - ./mosquitto/mosquitto.conf:/mosquitto/config/mosquitto.conf
+      - ./mosquitto/mosquitto.passwd:/mosquitto/config/mosquitto.passwd
   #************************************
   #++ Elastic ++
   #elasticsearch:

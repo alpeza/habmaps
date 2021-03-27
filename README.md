@@ -110,3 +110,32 @@ Se trata del mensaje que ha de enviar la estación base hacia el MQTT.
 
 Podemos encontrar ejemplos en [utilities](utilities). Este es
 un ejemplo de [cliente](utilities/maptrackerex.py)
+
+# MQTT
+
+### Seguridad
+
+El broker de mqtt viene configurado con autenticación. Por defecto
+esta es usuario: `habmaps` passwoord: `root`.
+
+Para generar una nueva password podemos proceder del siguente modo.
+
+1.- Accedemos al contenedor de mqtt con 
+
+```bash
+docker exec -it mosquitto /bin/sh
+```
+
+2.- Generamos un nuevo usuario password
+
+```bash
+mosquitto_passwd -c /mosquitto/config/mosquitto.passwd <usuario>
+```
+
+3.- Informamos en la consola de administración
+estas nuevas credenciales.
+
+4.- Rearrancamos los siguientes jobs en el panel de operaciones:
+  - `mqttlist`
+
+

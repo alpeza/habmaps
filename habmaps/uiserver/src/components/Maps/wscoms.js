@@ -7,11 +7,11 @@ const mqtth = (topic,resturl,compstate) => {
 
   //Cargamos el endpoint del cliente
   const sfetch = require('sync-fetch')
-  const resp = sfetch('/config/props/advertisedHostName', {
-    method: 'GET'
-  }).json()
+  const resp = sfetch('/config/props/advertisedHostName', {method: 'GET'}).json()
+  const credentials = sfetch('/config/props/mosquitto', {method: 'GET'}).json()
 
-  var client  = mqtt.connect(resp.mosquittows)
+  var client  = mqtt.connect(resp.mosquittows,{username: credentials.username,
+                                                    password: credentials.password})
   //console.log("Se va a conectar ... " + topic )
   //1.- Conexión al topic
   client.subscribe(topic, (err,msg) => {
