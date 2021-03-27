@@ -20,7 +20,10 @@ services:
             - admin: admin
         sharedconfs:
           advertisedHostName:
-            mosquittows: ws://amazon.web.services.es.com:8081sa
+            mosquittows: ws://192.168.1.13:8081/socket
+          mosquitto:
+            username: habmaps
+            password: root
         listeners:
           FrameParser:
             topic: 'hablistener' #Topic principal
