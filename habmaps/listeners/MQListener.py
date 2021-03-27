@@ -17,6 +17,7 @@ class Listener(object):
         self._confs = helpers.config.Config(file=file).getConfig()
         self.lconfig = self._confs['listeners']
         self.config = self._confs['mqtt']
+        self.shared = self._confs['sharedconfs']
         try:
             self.auth = self._confs['sharedconfs']['mosquitto']
             self.client.username_pw_set(username=self.auth['username'],password=self.auth['password'])

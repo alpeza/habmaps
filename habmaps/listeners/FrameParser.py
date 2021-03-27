@@ -3,7 +3,7 @@ import logging
 import json
 import traceback
 import ValidateSchema as vs
-logging.basicConfig(level=logging.ERROR)
+logging.basicConfig(level=logging.INFO)
 class FrameParser(MQListener.Listener):
     """
     Consumidor mqtt que se encarga de parsear y almacenar
