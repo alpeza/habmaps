@@ -16,3 +16,8 @@ class Config(object):
 
     def getConfig(self):
         return self.config
+
+    def update(self,newconf):
+        self.config['sharedconfs'].update(newconf)
+        with open(self.configfile, 'w') as file:
+            documents = yaml.dump(self.config, file)

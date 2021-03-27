@@ -16,6 +16,9 @@ services:
         ui:
           users:
             - admin: admin
+        sharedconfs:
+          advertisedHostName:
+            mosquittows: ws://amazon.web.services.es.com:8081sa
         listeners:
           FrameParser:
             topic: 'hablistener' #Topic principal

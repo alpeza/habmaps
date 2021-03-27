@@ -1,20 +1,28 @@
-# Configuracion de la comunicación con el broker mqtt
-mqtt:
-  url: 'localhost'
-  port: 1883
 db:
-  path: '../db.json'
-ui:
-  users:
-    - admin: admin
+  path: ../db.json
 listeners:
   FrameParser:
-    topic: 'hablistener' #Topic principal
     broadcast:
-      - service: 'status'
-        topic: 'devices/status'
-      - service: 'tracespoly'
-        topic: '/devices/tracespoly'
-        samples: 5000
-      - service: 'lastframe'
-        topic: '/devices/lastframe'
+    - service: status
+      topic: devices/status
+    - samples: 5000
+      service: tracespoly
+      topic: /devices/tracespoly
+    - service: lastframe
+      topic: /devices/lastframe
+    topic: hablistener
+mqtt:
+  port: 1883
+  url: localhost
+sharedconfs:
+  advertisedHostName:
+    mosquittows: ws://192.168.1.13:8081/socket
+  elastic:
+    password: password
+    url: localhost
+    user: user
+  telegram:
+    token: mytoken
+ui:
+  users:
+  - admin: admin

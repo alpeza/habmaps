@@ -9,6 +9,7 @@ api = Api(app)
 import BufferEndPoints
 import UsersEndPoints
 import ProcEndPoints
+import ConfEndPoints
 from flask_cors import CORS, cross_origin
 #cors = CORS(app, resources={"*": {"origins": "*","methods": "*"}})
 @app.after_request
@@ -41,6 +42,10 @@ api.add_resource(UsersEndPoints.Validate, '/authen/validate')
 api.add_resource(ProcEndPoints.List, '/proc/list')
 api.add_resource(ProcEndPoints.Action, '/proc/action/<string:action>/<string:id>')
 
+#*** ConfigurationEndPoints ***
+api.add_resource(ConfEndPoints.Configurations, '/config/shared')
+api.add_resource(ConfEndPoints.ConfigurationsSchema, '/config/schema')
+api.add_resource(ConfEndPoints.ConfigurationsPropertie, '/config/props/<string:propertie>')
 
 if __name__ == '__main__':
     app.run(debug=True,host='0.0.0.0')

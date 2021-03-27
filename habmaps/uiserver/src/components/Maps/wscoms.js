@@ -3,7 +3,15 @@ import React from "react";
 const mqtth = (topic,resturl,compstate) => {
   //https://gist.github.com/smching/3582d2fbae417fc919e23b4e61c036d1
   var mqtt = require('mqtt')
-  var client  = mqtt.connect('ws://localhost:8081/socket')
+
+
+  //Cargamos el endpoint del cliente
+  const sfetch = require('sync-fetch')
+  const resp = sfetch('/config/props/advertisedHostName', {
+    method: 'GET'
+  }).json()
+
+  var client  = mqtt.connect(resp.mosquittows)
   //console.log("Se va a conectar ... " + topic )
   //1.- Conexión al topic
   client.subscribe(topic, (err,msg) => {

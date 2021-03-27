@@ -18,8 +18,8 @@ var routes = [
     layout: "/admin",
   },
   {
-    path: "/services",
-    name: "Services",
+    path: "/config",
+    name: "Configuration",
     icon: "ni ni-archive-2 text-yellow",
     component: Servicesx,
     layout: "/admin",

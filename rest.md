@@ -49,3 +49,11 @@
 `curl -X PUT -s localhost:5000/proc/action/stop/mqttlistener | jq`
 
 `curl -X PUT -s localhost:5000/proc/action/stop/mqttlistener | jq`
+
+### Gestión de la configuración
+
+`curl -X GET localhost:5000/config`
+
+`curl -X PUT -d '{"advertisedHostName": "my-amazon.ws.com", "rodolfo": "dos"}' localhost:5000/config`
+
+`curl -X GET localhost:5000/config/props/advertisedHostName`
