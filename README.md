@@ -29,6 +29,8 @@ Distinguimos los siguientes mensajes válidos para envíar al MQTT.
 Se trata de un mensaje que indica que la estación base está
 viva.
 * __type__: health
+* __ftime__: Timestamp en el que se registró la muestra
+* __id__: Identificador de la estación base
 
 ```json
 {
@@ -104,6 +106,7 @@ Se trata del mensaje que ha de enviar la estación base hacia el MQTT.
   }
 }
 ```
+
 
 Podemos encontrar ejemplos en [utilities](utilities). Este es
 un ejemplo de [cliente](utilities/maptrackerex.py)
