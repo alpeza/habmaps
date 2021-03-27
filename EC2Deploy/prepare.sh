@@ -47,7 +47,6 @@ sudo chmod -R 777 habmaps
 cd habmaps
 
 sudo snap remove amazon-ssm-agent
-sudo apt-get remove amazon-ssm-agent
 
 sudo docker-compose up -d
 sudo docker logs -f habmaps_habmaps_1

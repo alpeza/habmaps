@@ -10,13 +10,10 @@ _Security Group_
 ssh -i "miubuntuone.pem" ubuntu@ec2-13-212-71-88.ap-southeast-1.compute.amazonaws.com
 ```
 
-2.- Creamos el instalador haciendo un copy paste del siguiente archivo [prepare.sh](prepare.sh)
+2.- Descargamos el instalador
 
 ```
-nano prepare.sh
-```
-
-```
+https://raw.githubusercontent.com/alpeza/habmaps/ci/EC2Deploy/prepare.sh
 chmod +x prepare.sh
 ```
 
@@ -25,3 +22,7 @@ chmod +x prepare.sh
 ```
 ./prepare.sh
 ```
+
+4.- Configuramos el cliente mqtt. Para ello entramos en la consola `/admin/config`.
+Configuramos el parametro de `mosquittows*` con la DNS de amazon. Por ejemplo:
+`ws://ec2-18-191-143-166.us-east-2.compute.amazonaws.com:8081/socket`
