@@ -8,14 +8,22 @@ import database
 
 class Listener(object):
     """Clase wrapper para el listener de mqtt y persistencia de datos"""
-    def __init__(self):
+    def __init__(self, file='../config.yaml'):
         super(Listener, self).__init__()
         self.client = mqtt.Client()
         self.client.on_connect = self.on_connect
         self.client.on_message = self.on_message
         #Cargamos la configuración del cliente
-        self.lconfig = helpers.config.Config(file='../config.yaml').getConfig()['listeners']
-        self.config = helpers.config.Config(file='../config.yaml').getConfig()['mqtt']
+        self._confs = helpers.config.Config(file=file).getConfig()
+        self.lconfig = self._confs['listeners']
+        self.config = self._confs['mqtt']
+        try:
+            self.auth = self._confs['sharedconfs']['mosquitto']
+            self.client.username_pw_set(username=self.auth['username'],password=self.auth['password'])
+        except Exception as e:
+            logging.warning("Error loading the auth configuration")
+            logging.error(e)
+
         self.client.connect(self.config['url'], self.config['port'], 60)
         # Inicializamos la base de datos
         self.dbh = database.db.dbHandler()
@@ -39,6 +47,7 @@ class Listener(object):
         pass
 
     def on_message(self,client, userdata, msg):
+        print(userdata)
         pass
 
     def start(self):

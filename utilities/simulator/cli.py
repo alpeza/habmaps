@@ -28,7 +28,7 @@ def groundStation(file,habid,gstid):
         time.sleep(1)
 
 def envia(message,topic):
-    client.connect("18.140.68.83",1883,60)
+    client.connect("localhost",1883,60)
     client.publish("hablistener", message);
     #client.disconnect();
 

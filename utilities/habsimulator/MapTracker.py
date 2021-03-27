@@ -10,10 +10,13 @@ class MapTracker(object):
                        mqtt_url="localhost",
                        mqtt_port=1883,
                        publish="hablistener",
-                       alive=60):
+                       alive=60,
+                       user='habmaps',
+                       password='root'):
         super(MapTracker, self).__init__()
         logging.info("Starting new MapTracker Client")
         self.client = mqtt.Client()
+        self.client.username_pw_set(username=user,password=password)
 
         self.mqtt_url = mqtt_url
         self.mqtt_port = mqtt_port
