@@ -37,7 +37,7 @@ services:
           elasticsearch:
             index: indicehab
             topic: hablistener
-            Connection_RFC1738: http://elastic:elastic@localhost:9200
+            Connection_RFC1738: http://elastic:elastic@elasticsearch:9200
         ui:
           users:
             - admin: admin
