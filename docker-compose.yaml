@@ -1,6 +1,7 @@
 version: "3"
 services:
-  #++ Eclipse Habmaps UI
+  #************************************
+  #++ Habmaps UI
   habmaps:
     image: alpeza/alpezahabmaps:latest
     depends_on:
@@ -9,29 +10,37 @@ services:
       - "5000:5000"
       - "80:3000"
     environment:
+      TZ: Europe/Madrid
       HABMAPS_CONFIGURATION: |
-        mqtt:
-          url: 'mosquitto'
-          port: 1883
         db:
-          path: '../db.json'
+          path: ../db.json
+        listeners:
+          FrameParser:
+            topic: hablistener
+            broadcast:
+              - service: status
+                topic: devices/status
+              - samples: 5000
+                service: tracespoly
+                topic: /devices/tracespoly
+              - service: lastframe
+                topic: /devices/lastframe
+        mqtt:
+          port: 1883
+          url: mosquitto
+        sharedconfs:
+          advertisedHostName:
+            mosquittows: ws://192.168.1.13:8081/socket
+          mosquitto:
+            username: habmaps
+            password: root
+          elasticsearch:
+            index: indicehab
+            topic: hablistener
+            Connection_RFC1738: http://elastic:elastic@localhost:9200
         ui:
           users:
             - admin: admin
-        sharedconfs:
-          advertisedHostName:
-            mosquittows: ws://amazon.web.services.es.com:8081sa
-        listeners:
-          FrameParser:
-            topic: 'hablistener' #Topic principal
-            broadcast:
-              - service: 'status'
-                topic: 'devices/status'
-              - service: 'tracespoly'
-                topic: '/devices/tracespoly'
-                samples: 5000
-              - service: 'lastframe'
-                topic: '/devices/lastframe'
   #************************************
   #++ Eclipse mosquitto
   mosquitto:
@@ -46,19 +55,28 @@ services:
       - ./mosquitto/mosquitto.passwd:/mosquitto/config/mosquitto.passwd
   #************************************
   #++ Elastic ++
-  #elasticsearch:
-  #  image: docker.elastic.co/elasticsearch/elasticsearch:7.11.2
-  #  environment:
-  #    - cluster.name=docker-cluster
-  #    - bootstrap.memory_lock=true
-  #    - "ES_JAVA_OPTS=-Xms512m -Xmx512m"
-  #  ulimits:
-  #    memlock:
-  #      soft: -1
-  #      hard: -1
-  #  ports:
-  #    - "9200:9200"
-  #kibana:
-  #  image: docker.elastic.co/kibana/kibana:7.11.2
-  #  ports:
-  #    - "5601:5601"
+  elasticsearch:
+    image: docker.elastic.co/elasticsearch/elasticsearch:7.11.2
+    environment:
+      - TZ=Europe/Madrid
+      - cluster.name=habmaps-singlenode
+      - bootstrap.memory_lock=true
+      - "ES_JAVA_OPTS=-Xms512m -Xmx512m"
+      - discovery.type=single-node
+      - ELASTIC_PASSWORD=elastic
+      - xpack.security.enabled=true
+    ulimits:
+      memlock:
+        soft: -1
+        hard: -1
+    ports:
+      - "9200:9200"
+  kibana:
+    image: docker.elastic.co/kibana/kibana:7.11.2
+    ports:
+      - "5601:5601"
+    environment:
+      - TZ=Europe/Madrid
+      - ELASTICSEARCH_USERNAME=elastic
+      - ELASTICSEARCH_PASSWORD=elastic
+      - xpack.security.enabled=true

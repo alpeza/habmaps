@@ -40,5 +40,34 @@ healthMessage = {
 }
 
 
+es_mapping = {
+    "mappings": {
+        "date_detection": True,
+        "dynamic": True,
+        "properties": {
+            "ftime": {
+                "type":   "date",
+                "format": "yyyy-MM-dd HH:mm:ss||epoch_millis"
+            },
+            "basestation":{
+                "type": "object",
+                "properties": {
+                    "pos": {
+                        "type": "geo_point"
+                    }
+                }
+            },
+            "hab":{
+                "type": "object",
+                "properties": {
+                    "pos": {
+                        "type": "geo_point"
+                    }
+                }
+            }
+        }
+    }
+}
+
 
 schemas = [healthMessage,positionMessage]

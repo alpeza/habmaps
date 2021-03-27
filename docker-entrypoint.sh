@@ -10,9 +10,10 @@ if [ "$1" = 'start' ]; then
       echo ${HABMAPS_CONFIGURATION}
   fi
 
-  echo "Launching the MQ listener ..."
+  echo "Launching  listeners ..."
   cd /usr/src/app/habmaps/listeners
-  pm2 start FrameParser.py --name mqttlistener
+  pm2 start FrameParser.py --name MapBuffer
+  pm2 start ElasticAppender.py --name ElasticAppender
   echo "Launching the ui server ..."
   cd /usr/src/app/habmaps/uiserver
   pm2 start run.sh --name uiserver

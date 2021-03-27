@@ -22,7 +22,7 @@ def genTracks(simulations):
 def gettrack(habid,bsid,habll,bsll):
     track = {
       "type": "frame",
-      "ftime": ss._fetchTime(),
+      "ftime": ss._fetchTimeM(),
       "hab":{
         "id": habid,
         "pos":{
@@ -32,19 +32,19 @@ def gettrack(habid,bsid,habll,bsll):
         "payload": [
           {
             "name": "high",
-            "value": ss._fetchRamp()
+            "value": float(ss._fetchRamp())
           },
           {
             "name": "TempInterior",
-            "value": ss._getRandValue(10.0,25.0)
+            "value": float(ss._getRandValue(10.0,25.0))
           },
           {
             "name": "TempExterior",
-            "value": ss._getRandValue(5.0,20.0)
+            "value": float(ss._getRandValue(5.0,20.0))
           },
           {
             "name": "Presion",
-            "value": ss._getRandValue(5.0,20.0)
+            "value": float(ss._getRandValue(5.0,20.0))
           }
         ]
       },

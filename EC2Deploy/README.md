@@ -25,3 +25,7 @@ chmod +x prepare.sh
 ```
 ./prepare.sh
 ```
+
+4.- Configuramos el cliente mqtt. Para ello entramos en la consola `/admin/config`.
+Configuramos el parametro de `mosquittows*` con la DNS de amazon. Por ejemplo:
+`ws://ec2-18-191-143-166.us-east-2.compute.amazonaws.com:8081/socket`
