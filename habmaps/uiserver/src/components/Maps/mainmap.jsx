@@ -90,7 +90,7 @@ export default class MainMap extends React.Component {
     } else {
       return (
         <div>
-          <MapContainer className="mainmap" center={position} zoom={10} scrollWheelZoom={true}>
+          <MapContainer zoomControl={false} className="mainmap" center={position} zoom={10} scrollWheelZoom={true}>
             <TileLayer
               attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a>'
               url="https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}"

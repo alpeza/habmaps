@@ -2,7 +2,6 @@ db:
   path: ../db.json
 listeners:
   FrameParser:
-    topic: hablistener
     broadcast:
     - service: status
       topic: devices/status
@@ -11,19 +10,20 @@ listeners:
       topic: /devices/tracespoly
     - service: lastframe
       topic: /devices/lastframe
+    topic: hablistener
 mqtt:
   port: 1883
   url: localhost
 sharedconfs:
   advertisedHostName:
     mosquittows: ws://192.168.1.13:8081/socket
-  mosquitto:
-    username: habmaps
-    password: root
   elasticsearch:
-    index: indicehab
-    topic: hablistener
     Connection_RFC1738: http://elastic:elastic@localhost:9200
+    index: lipton
+    topic: hablistener
+  mosquitto:
+    password: root
+    username: habmaps
 ui:
   users:
   - admin: admin

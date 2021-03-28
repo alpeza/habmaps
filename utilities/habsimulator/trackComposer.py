@@ -29,25 +29,12 @@ def gettrack(habid,bsid,habll,bsll):
           "lat": float(habll[0]),
           "lon": float(habll[1])
         },
-        "payload": [
-          {
-            "name": "high",
-            "value": float(ss._fetchRamp())
-          },
-          {
-            "name": "TempInterior",
-            "value": float(ss._getRandValue(10.0,25.0))
-          },
-          {
-            "name": "TempExterior",
-            "value": float(ss._getRandValue(5.0,20.0))
-          },
-          {
-            "name": "Presion",
-            "value": float(ss._getRandValue(5.0,20.0))
-          }
-        ]
-      },
+        "payload": {
+            "high": float(ss._fetchRamp()),
+            "TempInterior":  float(ss._getRandValue(10.0,25.0)),
+            "TempExterior": float(ss._getRandValue(5.0,20.0)),
+            "Presion": float(ss._getRandValue(5.0,20.0))
+      }},
       "basestation":{
         "id": bsid,
         "pos":{
