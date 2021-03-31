@@ -78,24 +78,12 @@ Se trata del mensaje que ha de enviar la estación base hacia el MQTT.
       "lat": 38.5911138,
       "lon": -1.439209
     },
-    "payload": [
-      {
-        "name": "high",
-        "value": 80
-      },
-      {
-        "name": "TempInterior",
-        "value": "17.477750802022154"
-      },
-      {
-        "name": "TempExterior",
-        "value": "7.662387109586051"
-      },
-      {
-        "name": "Presion",
-        "value": "11.992894902660938"
-      }
-    ]
+    "payload": {
+      "high": 12,
+      "TempInterior":  20.1,
+      "TempExterior": 5.1,
+      "Presion": 12
+    }
   },
   "basestation": {
     "id": "estaesotraesta",

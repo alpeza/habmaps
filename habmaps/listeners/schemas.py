@@ -57,6 +57,9 @@ es_mapping = {
                     }
                 }
             },
+            "payload": {
+                "type": "nested"
+            },
             "hab":{
                 "type": "object",
                 "properties": {

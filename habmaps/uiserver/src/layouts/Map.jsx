@@ -11,16 +11,18 @@ import SignalsWidget from "components/Maps/signalsWidget.jsx";
 import PredictHabWidget from "components/Maps/predicthabWidget.jsx";
 
 import MainMap from "components/Maps/mainmap.jsx";
+import Mosaic from "components/Maps/mosaic.jsx";
 
 //< MainMap />
+// < MapSideBar items= {components}></MapSideBar>
 const MapViewer = (props) => {
   const mainContent = React.useRef(null);
   const components = [{name:'DevicesList',widget:DevicesList},
                       {name:'SignalsWidget',widget:SignalsWidget}]
   return (
     <div>
-      < MapSideBar items= {components}></MapSideBar>
-      < MainMap />
+        < MainMap />
+        < Mosaic />
     </div>
     );
 };
