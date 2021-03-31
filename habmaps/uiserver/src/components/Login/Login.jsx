@@ -81,7 +81,7 @@ export default class Loginx extends React.Component {
                     width="300px"
                     height="auto"
                     src={
-                      require("../../assets/img/brand/argon-react-white.png").default
+                      require("../../assets/img/brand/argon-react.png").default
                     }
                   />
               </CardHeader>
