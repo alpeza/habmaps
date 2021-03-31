@@ -37,7 +37,7 @@ export default class Mosaic extends React.Component {
 
             </div>
             <div className="bottomm">
-               
+                <PayloadWidget></PayloadWidget>
             </div>
             <div className="top"></div>
           </div>

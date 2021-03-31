@@ -1,8 +1,0 @@
-    <GaugeChart id="gauge-chart2"
-                            percent={0.86}
-                            nrOfLevels={20}
-                            style={{
-                                "width" : '30%',
-                            }}
-                            previousValue={0.75}
-                />

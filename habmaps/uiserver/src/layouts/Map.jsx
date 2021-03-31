@@ -21,8 +21,8 @@ const MapViewer = (props) => {
                       {name:'SignalsWidget',widget:SignalsWidget}]
   return (
     <div>
-        < Mosaic />
         < MainMap />
+        < Mosaic />
     </div>
     );
 };

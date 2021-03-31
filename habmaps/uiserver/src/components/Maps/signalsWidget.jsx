@@ -33,9 +33,14 @@ export default class SignalsWidget extends React.Component {
         data: {},
         distinct: [],
         current_hab: '',
-        current_coors: []
+        current_coors: [41.387016,2.170047],
+        last_coors: [41.387016,2.170047],
+        pause: false
       };
       this._onSelect = this._onSelect.bind(this)
+      this.toggle = this.toggle.bind(this)
+      this.getLastCoords = this.getLastCoords.bind(this)
+      this.getCurrentCoors = this.getCurrentCoors.bind(this)
       mqtth("/devices/lastframe","/devices/lastframe",this);
     }
 
@@ -54,8 +59,6 @@ export default class SignalsWidget extends React.Component {
       var habs = mydata['habs']
       for (var i = 0; i < habs.length; i++) {
         if (habs[i]['id'] == curhab) {
-          console.log('Examinando')
-          console.log(habs[i])
           var tmparr = [habs[i].pos.lat,habs[i].pos.lon]
           return tmparr
         }
@@ -64,6 +67,18 @@ export default class SignalsWidget extends React.Component {
     return [41.387016,2.170047];
   }
 
+  toggle(){
+    this.setState({
+      pause: ! this.state.pause
+    })
+    this.setState({
+      last_coors : this.getCurrentCoors(this.state.data)
+    })
+  }
+
+  getLastCoords(){
+    return this.state.last_coors;
+  }
   getDevices(mydata){
     var elems = mydata;
     var arr = []
@@ -80,7 +95,7 @@ export default class SignalsWidget extends React.Component {
   }
 
   render() {
-    const { error, data, isLoaded, items } = this.state;
+    const { error,pause, tmparr,data, isLoaded, items } = this.state;
     if (error) {
       return <div>Error: {error.message}</div>;
     } else if (!isLoaded) {
@@ -108,7 +123,7 @@ export default class SignalsWidget extends React.Component {
 
           <Container>
             <Row>
-              <Col xs="10">
+              <Col xs="7">
                 <div><b>Lat:</b> {this.getCurrentCoors(data)[0]}  <b>Lon:</b> {this.getCurrentCoors(data)[1]}</div>
               </Col>
               <Col xs="2">
@@ -116,11 +131,18 @@ export default class SignalsWidget extends React.Component {
                 <Badge color="success">GO</Badge>
                 </a>
               </Col>
+              <Col xs="2">
+                <Badge onClick={this.toggle} color="success">{ pause ? "PLAY" : "PAUSE" }</Badge>
+              </Col>
             </Row>
           </Container>
 
           <div className="google-map-code">
-            <iframe src={"https://maps.google.com/maps?q="+this.getCurrentCoors(data)[0]+","+this.getCurrentCoors(data)[1]+"&z=13&output=embed"} width="100%" height="350" frameborder="0" style={{border:0}} allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+            {pause
+                ? <iframe src={"https://maps.google.com/maps?q=" + this.getLastCoords(data)[0] + "," + this.getLastCoords(data)[1] + "&z=13&output=embed"} width="100%" height="350" frameBorder="0" style={{border: 0}} allowFullScreen="" aria-hidden="false" tabIndex="0"></iframe>
+                : <iframe src={"https://maps.google.com/maps?q=" + this.getCurrentCoors(data)[0] + "," + this.getCurrentCoors(data)[1] + "&z=13&output=embed"} width="100%" height="350" frameBorder="0" style={{border: 0}} allowFullScreen="" aria-hidden="false" tabIndex="0"></iframe>
+            }
+
           </div>
 
             <Dropdown options={this.getDevices(data)} onChange={this._onSelect} value={this.getDevices(data)[0]} placeholder="Select an option" />
