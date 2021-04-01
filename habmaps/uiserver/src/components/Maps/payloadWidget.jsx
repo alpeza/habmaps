@@ -81,12 +81,11 @@ export default class PayloadWidget extends React.Component {
                         <Row>
                                 {
                                     this.isRenderable(data).map(item => (
-                                        <Col id="circli">
+                                        <Col id="circli" align="center">
 
                                                             <Chart
                                                                 options={{
                                                                     chart: {
-                                                                        height: 380,
                                                                         type: "radialBar",
                                                                     },
                                                                     series: [40],
@@ -140,7 +139,8 @@ export default class PayloadWidget extends React.Component {
                                                                 }}
                                                                 series={[item.value]}
                                                                 type="radialBar"
-                                                                width="100%"
+                                                                width="200px"
+                                                                height="auto"
                                                             />
 
                                         </Col>

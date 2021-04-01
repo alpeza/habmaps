@@ -1,6 +1,7 @@
 # HABMaps
 
-![](habmaps/uiserver/src/assets/img/brand/argon-react-white.png)
+![](habmaps/uiserver/src/assets/img/brand/argon-react.png)
+![](habmaps/uiserver/src/assets/img/brand/cap.png)
 
 Utilidad para el seguimiento por gps
 
