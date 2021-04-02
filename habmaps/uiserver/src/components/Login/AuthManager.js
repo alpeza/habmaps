@@ -32,7 +32,7 @@ class AuthManager {
       }).json()
       return resp.isValid
     }else{
-      console.log('No hay token')
+      //console.log('No hay token')
       return false;
     }
   }

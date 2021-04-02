@@ -22,6 +22,7 @@ import { BiCar,BiPlanet } from "react-icons/bi";
 import Loader from "react-loader-spinner";
 import mqtth from "./wscoms"
 import Chart from 'react-apexcharts'
+import LocalCache from "./LocalCache";
 
 
 
@@ -35,6 +36,10 @@ export default class PayloadWidget extends React.Component {
             selected: 'superhab',
             vault: {}
         };
+        this.lc = new LocalCache()
+        this.setState({
+            selected: this.lc.getKey('current_hab')
+        })
         this.isRenderable = this.isRenderable.bind(this)
         mqtth("/devices/lastframe","/devices/lastframe",this);
     }
@@ -45,10 +50,13 @@ export default class PayloadWidget extends React.Component {
     isNumber(n) { return !isNaN(parseFloat(n)) && !isNaN(n - 0) }
 
     isRenderable(dat){
-        console.log(dat);
+        //console.log(dat);
+        console.log('En el is renderable ...');
+        var selected= this.lc.getKey('current_hab');
+        console.log(selected);
         var arr=[]
         for (var i = 0; i < dat.habs.length; i++) {
-            if (dat.habs[i].id == this.state.selected){
+            if (dat.habs[i].id == selected){
                var els = Object.keys(dat.habs[i].trace)
                 for (var j = 0; j < els.length; j++) {
                     if (this.isNumber(dat.habs[i].trace[els[j]])){
@@ -73,7 +81,7 @@ export default class PayloadWidget extends React.Component {
 
 
     render() {
-        const { selected, error, data, isLoaded, items } = this.state;
+        const { error, data, isLoaded } = this.state;
         if (error) {
             return <div>Error: {error.message}</div>;
         } else if (!isLoaded) {

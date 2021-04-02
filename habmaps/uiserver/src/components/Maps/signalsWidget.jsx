@@ -1,18 +1,6 @@
 import React from "react";
 import {
   Badge,
-  Card,
-  CardHeader,
-  CardFooter,
-  DropdownMenu,
-  DropdownItem,
-  UncontrolledDropdown,
-  DropdownToggle,
-  Media,
-  Pagination,
-  PaginationItem,Navbar,
-  PaginationLink,
-  Progress,
   Table,
   Container,NavbarBrand,
   Row,Col,CardTitle,CardBody,
@@ -23,6 +11,7 @@ import 'react-dropdown/style.css';
 import { BiCar,BiPlanet } from "react-icons/bi";
 import Loader from "react-loader-spinner";
 import mqtth from "./wscoms"
+import LocalCache from "./LocalCache";
 
 export default class SignalsWidget extends React.Component {
   constructor(props) {
@@ -37,6 +26,7 @@ export default class SignalsWidget extends React.Component {
         last_coors: [41.387016,2.170047],
         pause: false
       };
+      this.lc = new LocalCache()
       this._onSelect = this._onSelect.bind(this)
       this.toggle = this.toggle.bind(this)
       this.getLastCoords = this.getLastCoords.bind(this)
@@ -49,12 +39,13 @@ export default class SignalsWidget extends React.Component {
 
   _onSelect(ev){
     this.setState({current_hab: ev.value})
+    this.lc.store('current_hab', ev.value);
     //console.log(ev)
   }
 
   getCurrentCoors(mydata){
     var curhab = this.state.current_hab;
-    console.log('CurHab: ' + curhab)
+    //console.log('CurHab: ' + curhab)
     if (mydata) {
       var habs = mydata['habs']
       for (var i = 0; i < habs.length; i++) {
@@ -90,6 +81,7 @@ export default class SignalsWidget extends React.Component {
     }
     if (this.state.current_hab == '') {
       this.setState({current_hab: arr[0]})
+      this.lc.store('current_hab', arr[0]);
     }
     return arr
   }

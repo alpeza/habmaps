@@ -31,8 +31,7 @@ class ReactComponent extends React.Component {
         name: props.name,
         mcolor: string2color(props.name),
       };
-      //console.log(props);
-      console.log(this.state)
+      //console.log(this.state)
     }
   render() {
     const { name, mcolor } = this.state;
