@@ -46,7 +46,7 @@ export default class Loginx extends React.Component {
   handleSubmit(ev) {
     const user = this.state.user; // user
     const pass = this.state.password;
-    console.log(user +" : "+ pass);
+    //console.log(user +" : "+ pass);
     let sm = new AuthManager();
 
     if ( user == '' || pass == '' ){
