@@ -19,7 +19,7 @@ cd habmaps
 docker-compose up -d
 ```
 
-> Para descargar en una EC2 de Amazon puede seguir las siguientes [instrucciones](EC2Deploy/README.md)
+> Para más información consulte la  [wiki](https://github.com/alpeza/habmaps/wiki)
 
 
 
