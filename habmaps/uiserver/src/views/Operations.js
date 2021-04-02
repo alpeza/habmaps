@@ -65,7 +65,7 @@ class Cleaner extends React.Component{
         this.getFrames();
       }else
         NotificationManager.error('Something went wrong cleaning the buffer HTTP: ' + response.status.toString())
-      console.log(response)
+       //console.log(response)
     })
     .catch( err  => {
       NotificationManager.error('Something went wrong for cleaning ');
@@ -76,7 +76,7 @@ class Cleaner extends React.Component{
 
   onCleanFrame(ev){
     const { current } = this.state;
-    console.log("Cleaning frame: " + current)
+    //console.log("Cleaning frame: " + current)
     NotificationManager.info('Cleaning frame ' + current );
 
     fetch('/data/traces/'+ current,{method: 'delete'})
