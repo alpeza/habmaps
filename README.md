@@ -22,4 +22,6 @@ docker-compose up -d
 > Para más información consulte la  [wiki](https://github.com/alpeza/habmaps/wiki)
 
 
+# Desarrollo de clientes
 
+Para el desarrollo de clientes se pueden seguir el ejemplo de [HabMapsGateway](https://github.com/alpeza/habmapsgateway)

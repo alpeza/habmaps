@@ -22,7 +22,7 @@ positionMessage = {
         "type" : {"type" : "string"},
         "ftime" : {"type" : "string"},
         "hab" : getHab(),
-        "payload" : {"type" : "array"},
+        "payload" : {"type" : "object"},
         "basestation" : getHab()
     },
     "required": ["type", "ftime","hab","basestation"]
