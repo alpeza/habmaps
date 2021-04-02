@@ -103,8 +103,7 @@
   width: 100%;
   min-height: 100px;
   max-height: 500px;
-  /*border-bottom: solid 1px grey;*/
-  background: white;
+  background: black;
 }
 
 .mwidget .gauge{

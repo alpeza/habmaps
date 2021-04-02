@@ -16,9 +16,6 @@ def genTracks(simulations):
     #print(obj)
     return obj
 
-
-
-
 def gettrack(habid,bsid,habll,bsll):
     track = {
       "type": "frame",
@@ -30,9 +27,12 @@ def gettrack(habid,bsid,habll,bsll):
           "lon": float(habll[1])
         },
         "payload": {
-            "high": float(ss._fetchRamp())
-
-      }},
+            "high": float(ss._fetchRamp()),
+            "TempInterior":  float(ss._getRandValue(10.0,25.0)),
+            "TempInteriorDos":  float(ss._getRandValue(10.0,25.0)),
+            "TempInteriorTres":  str(ss._getRandValue(10.0,25.0) + " Grados"),
+            "TempInteriorCuatro":  "Hola"
+    }},
       "basestation":{
         "id": bsid,
         "pos":{
