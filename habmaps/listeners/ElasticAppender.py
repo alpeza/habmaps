@@ -17,12 +17,9 @@ class ElasticAppender(MQListener.Listener):
     def sendElastic(self,data):
         """Transmite lo que llega a elastic search"""
         dtts=json.loads(data)
-        print(json.dumps(dtts))
         if dtts['type'] == 'frame':
             res = self.es.index(index=self.shared['elasticsearch']['index'], body=dtts)
-            print(res)
-        else:
-            print("No es de tipo frame y no se insertará ...")
+            logging.info(res)
 
     def on_message(self,client, userdata, msg):
         logging.info("New message")
