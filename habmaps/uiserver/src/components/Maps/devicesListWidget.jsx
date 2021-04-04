@@ -1,26 +1,12 @@
 import React from "react";
 import {
   Badge,
-  Card,
-  CardHeader,
-  CardFooter,
-  DropdownMenu,
-  DropdownItem,
-  UncontrolledDropdown,
-  DropdownToggle,
-  Media,
-  Pagination,
-  PaginationItem,
-  PaginationLink,
-  Progress,
   Table,
-  Container,
-  Row,
-  UncontrolledTooltip,
 } from "reactstrap";
 import { BiCar,BiPlanet } from "react-icons/bi";
 import Loader from "react-loader-spinner";
 import mqtth from "./wscoms"
+const prettyMilliseconds = require('pretty-ms');
 
 export default class DevicesList extends React.Component {
   constructor(props) {
@@ -59,7 +45,7 @@ export default class DevicesList extends React.Component {
                 <th scope="col">Id</th>
                 <th scope="col">Status</th>
                 <th scope="col">Last Seen</th>
-                <th scope="col">Minutes Ago</th>
+                <th scope="col">Time Ago</th>
               </tr>
             </thead>
             <tbody>
@@ -72,7 +58,7 @@ export default class DevicesList extends React.Component {
                     <Badge color={ item.online ? 'success' : 'danger'}>{ item.online ? 'ONLINE' : 'OFFLINE'}</Badge>
                   </td>
                   <td>{ item.lastseen }</td>
-                  <td>{ item.minutesago }</td>
+                  <td>{ prettyMilliseconds(item.secondsago * 1000) }</td>
                 </tr>
               ))
               }
@@ -84,7 +70,7 @@ export default class DevicesList extends React.Component {
                   <td>{ item.id }</td>
                   <td><Badge color={ item.online ? 'success' : 'danger'}>{ item.online ? 'ONLINE' : 'OFFLINE'}</Badge></td>
                   <td>{ item.lastseen }</td>
-                  <td>{ item.minutesago }</td>
+                  <td>{ prettyMilliseconds(item.secondsago * 1000) }</td>
                 </tr>
               ))
               }
