@@ -106,6 +106,14 @@
   background: black;
 }
 
+.mwidget *{
+  -moz-user-select: none;
+  -khtml-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
 .mwidget .gauge{
   height: 50px;
   width: auto;
@@ -119,6 +127,11 @@
   z-index: 2000;
   background: linear-gradient(rgba(0,0,0,1), rgba(0,0,0,0.3));
   box-shadow: 0px 0px 10px rgba(0,0,0,0.5);
+  -moz-user-select: none;
+  -khtml-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }
 
 .mwidget .payloadind .col{
@@ -168,11 +181,20 @@
   background-color: rgb(255 0 50 / 50%);
 }
 
+*.unselectable {
+  -moz-user-select: none;
+  -khtml-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
 
 /*Mobiles*/
 
+
 @media all and ( max-width: 720px ) and (orientation:portrait) {
-  html{
+  body{
     background: black;
   }
   .mainmap{
@@ -198,14 +220,16 @@
   }
 
   .left{
+    margin-top: 3em;
     width: 100vw;
     height: auto;
     position: inherit;
     background: black;
-    clear:both;
+
   }
 
   .right{
+    margin-top: 3em;
     width: 100vw;
     height: auto;
     position: inherit;
@@ -213,7 +237,7 @@
     right: 0px;
     top: 4vh;
     background: black;
-    clear:both;
+
   }
 
 
@@ -221,11 +245,7 @@
     width: 100vw;
     height: auto;
     position: inherit;
-    z-index: 1900;
-    bottom: 30px;
-    left: 0px;
     background: black;
-    clear:both;
   }
 
   .mwidget {
@@ -242,20 +262,15 @@
     margin-top: 2em;
     min-height: auto  !important;
     max-height: 15vh  !important;
+    width: 50vw;
   }
-
 
   #circli *{
-    background: rgb(0,0,0);
-    background: linear-gradient(180deg, rgba(0,0,0,1) 98%, rgba(255,255,255,0.0) 100%);
-    width: 35vw;
-    max-height: 10vh;
     position: relative;
+    margin-left: -0.75em;
   }
 
-  #circli .col{
-    max-height: 10vh;
-  }
+
 
   .navmap{
     width: 100vw;
@@ -282,7 +297,14 @@
 
   .mosaic{
     height: auto;
+    background: black;
   }
+  .Dropdown-menu {
+    z-index: 90000;
+    position: relative;
+  }
+
+
 }
 @media all and ( max-width: 720px ) and (orientation:landscape) {
   .mainmap{
@@ -294,3 +316,4 @@
     display: none;
   }
 }
+

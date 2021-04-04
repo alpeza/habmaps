@@ -1,8 +1,6 @@
 import React from "react";
 import DevicesList from "components/Maps/devicesListWidget.jsx";
 import SignalsWidget from "components/Maps/signalsWidget.jsx";
-import GaugeChart from 'react-advanced-gauge-chart'
-import {NavbarBrand} from "reactstrap";
 import PayloadWidget from "./payloadWidget";
 export default class Mosaic extends React.Component {
   constructor(props) {
@@ -29,9 +27,6 @@ export default class Mosaic extends React.Component {
                       }
                   />
               </div>
-            <div className="left">
-                <SignalsWidget></SignalsWidget>
-            </div>
             <div className="right">
                 <DevicesList></DevicesList>
 
@@ -40,6 +35,9 @@ export default class Mosaic extends React.Component {
                 <PayloadWidget></PayloadWidget>
             </div>
             <div className="top"></div>
+              <div className="left">
+                  <SignalsWidget></SignalsWidget>
+              </div>
           </div>
     );
 

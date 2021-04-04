@@ -8,7 +8,6 @@ import {
 } from "reactstrap";
 import Dropdown from 'react-dropdown';
 import 'react-dropdown/style.css';
-import { BiCar,BiPlanet } from "react-icons/bi";
 import Loader from "react-loader-spinner";
 import mqtth from "./wscoms"
 import LocalCache from "./LocalCache";
@@ -103,8 +102,6 @@ export default class SignalsWidget extends React.Component {
       return (
         //******* Senales *********
         <div className="mwidget">
-
-
           <Table className="align-items-center" responsive>
             <thead className="thead-light">
               <tr>
@@ -116,7 +113,12 @@ export default class SignalsWidget extends React.Component {
           <Container>
             <Row>
               <Col xs="7">
-                <div><b>Lat:</b> {this.getCurrentCoors(data)[0]}  <b>Lon:</b> {this.getCurrentCoors(data)[1]}</div>
+                <Row>
+                  <b>  Lat:</b> {this.getCurrentCoors(data)[0]}
+                </Row>
+                <Row>
+                  <b>  Lon:</b> {this.getCurrentCoors(data)[1]}
+                </Row>
               </Col>
               <Col xs="2">
                 <a href={"https://www.google.com/maps/dir/?api=1&travelmode=driving&destination=" + this.getCurrentCoors(data)[0] + "," + this.getCurrentCoors(data)[1]} target="_blank">

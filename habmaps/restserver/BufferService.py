@@ -101,13 +101,20 @@ def _calcDateDiferece(now,then,strformat=True):
 
     return int(d2_ts-d1_ts) / 60
 
+def datetime_from_utc_to_local(utc_datetime):
+    utc_datetime = datetime.strptime(utc_datetime,"%Y-%m-%d %H:%M:%S")
+    now_timestamp = time.time()
+    offset = datetime.fromtimestamp(now_timestamp) - datetime.utcfromtimestamp(now_timestamp)
+    dtf = utc_datetime + offset
+    return dtf.strftime("%Y-%m-%d %H:%M:%S")
+
 def getDeviceStatus():
     """ Retorna el status """
     retarr = {
         "habs":[],
         "basestations":[]
     }
-    naw = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+    naw = datetime.utcnow().strftime("%Y-%m-%d %H:%M:%S")
     #1.- Obtenemos las últimas trazas
     lt = fetchLastTraces()
     #2.- Calculamos el estado para los habs
@@ -118,7 +125,7 @@ def getDeviceStatus():
             state = True
         retarr['habs'].append({
             "id": ha['id'],
-            "lastseen": ha['ftime'],
+            "lastseen": datetime_from_utc_to_local(ha['ftime']),
             "minutesago": round(diff),
             "secondsago": round(diff * 60),
             "online": state
@@ -136,12 +143,12 @@ def getDeviceStatus():
         else:
             statse = datetime.strptime(statse[-1]['ftime'], fmt)
         latest_seen = max([datetime.strptime(bs['ftime'], fmt), statse])
-        diff = _calcDateDiferece(datetime.now(),latest_seen,strformat=False)
-        if diff <= 3:
+        diff = _calcDateDiferece(datetime.utcnow(),latest_seen,strformat=False)
+        if diff <= 4:
             state = True
         retarr['basestations'].append({
             "id": bs['id'],
-            "lastseen": latest_seen.strftime(fmt),
+            "lastseen": datetime_from_utc_to_local(latest_seen.strftime(fmt)),
             "minutesago": round(diff),
             "secondsago": round(diff * 60),
             "online": state

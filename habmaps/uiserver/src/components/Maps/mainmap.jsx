@@ -1,35 +1,18 @@
 import React from "react";
 import { Polyline, MapContainer, TileLayer,Tooltip, Popup } from 'react-leaflet';
 import Marker from 'react-leaflet-enhanced-marker'
-import {
-  Badge,
-  Card,
-  CardHeader,
-  CardFooter,
-  DropdownMenu,
-  DropdownItem,
-  UncontrolledDropdown,
-  DropdownToggle,
-  Media,
-  Pagination,
-  PaginationItem,
-  PaginationLink,
-  Progress,
-  Table,
-  Container,
-  Row,
-  UncontrolledTooltip,
-} from "reactstrap";
 import Loader from "react-loader-spinner";
 import mqtth from "./wscoms"
-
+import {
+  Row
+} from "reactstrap";
 const string2color = require('string-to-color');
 class ReactComponent extends React.Component {
   constructor(props) {
       super(props);
       this.state = {
         name: props.name,
-        mcolor: string2color(props.name),
+        mcolor: string2color(props.name + "apz"),
       };
       //console.log(this.state)
     }
@@ -40,8 +23,8 @@ class ReactComponent extends React.Component {
       color: "white",
       display: "flex",
       justifyContent: "center",
-      width: "50px",
-      height: "50px",
+      width: "30px",
+      height: "30px",
       borderRadius: "50px",
       alignItems: "center"
     };
@@ -67,7 +50,7 @@ export default class MainMap extends React.Component {
 
   getColor(str){
     return {
-      color: string2color(str)
+      color: string2color(str + "apz")
     }
   }
 
@@ -99,10 +82,16 @@ export default class MainMap extends React.Component {
               <div>
               <Polyline pathOptions={ this.getColor(item.id) } positions={item.data} />
                 <Marker  icon={<ReactComponent name= {item.id} />}  position={item.data.slice(-1).pop()}>
-                    <Popup>
-                      Lat: {item.data.slice(-1).pop()[0]}, Long: {item.data.slice(-1).pop()[1]}
-                      <a href={"https://www.google.com/maps/dir/?api=1&travelmode=driving&destination=" + item.data.slice(-1).pop()[0] + "," + item.data.slice(-1).pop()[1] } target="_blank" >GoogleMaps</a>
-                    </Popup>
+
+                  <Row>
+                    Lat: {item.data.slice(-1).pop()[0]}
+                  </Row>
+                  <Row>
+                    Long: {item.data.slice(-1).pop()[1]}
+                  </Row>
+                  <Row>
+                    <a href={"https://www.google.com/maps/dir/?api=1&travelmode=driving&destination=" + item.data.slice(-1).pop()[0] + "," + item.data.slice(-1).pop()[1] } target="_blank" >GoogleMaps</a>
+                  </Row>
                 </Marker>
               </div>
             ))
@@ -114,8 +103,15 @@ export default class MainMap extends React.Component {
               <Polyline pathOptions={ this.getColor(item.id) } positions={item.data} />
                 <Marker  icon={<ReactComponent name= {item.id} />}  position={item.data.slice(-1).pop()}>
                   <Popup>
-                    Lat: {item.data.slice(-1).pop()[0]}, Long: {item.data.slice(-1).pop()[1]}
-                    <a href={"https://www.google.com/maps/dir/?api=1&travelmode=driving&destination=" + item.data.slice(-1).pop()[0] + "," + item.data.slice(-1).pop()[1] } target="_blank" >GoogleMaps</a>
+                    <Row>
+                      Lat: {item.data.slice(-1).pop()[0]}
+                    </Row>
+                    <Row>
+                      Long: {item.data.slice(-1).pop()[1]}
+                    </Row>
+                    <Row>
+                      <a href={"https://www.google.com/maps/dir/?api=1&travelmode=driving&destination=" + item.data.slice(-1).pop()[0] + "," + item.data.slice(-1).pop()[1] } target="_blank" >GoogleMaps</a>
+                    </Row>
                   </Popup>
                 </Marker>
               </div>

@@ -19,7 +19,7 @@ sharedconfs:
     mosquittows: ws://192.168.1.13:8081/socket
   elasticsearch:
     Connection_RFC1738: http://elastic:elastic@localhost:9200
-    index: lipton
+    index: unindice
     topic: hablistener
   mosquitto:
     password: root
