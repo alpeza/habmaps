@@ -48,7 +48,6 @@
 
 `curl -X PUT -s localhost:5000/proc/action/stop/mqttlistener | jq`
 
-`curl -X PUT -s localhost:5000/proc/action/stop/mqttlistener | jq`
 
 ### Gestión de la configuración
 
