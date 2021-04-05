@@ -3,7 +3,7 @@ services:
   #************************************
   #++ Habmaps UI
   habmaps:
-    image: alpeza/alpezahabmaps:latest
+    image: habmaps4pi:latest
     depends_on:
       - mosquitto
     ports:
