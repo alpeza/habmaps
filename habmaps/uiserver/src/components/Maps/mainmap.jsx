@@ -1,11 +1,15 @@
 import React from "react";
+
 import { Polyline, MapContainer, TileLayer,Tooltip, Popup } from 'react-leaflet';
 import Marker from 'react-leaflet-enhanced-marker'
 import Loader from "react-loader-spinner";
+
 import mqtth from "./wscoms"
 import {
   Row
 } from "reactstrap";
+import eventBus from "./EventBus";
+
 const string2color = require('string-to-color');
 class ReactComponent extends React.Component {
   constructor(props) {
@@ -40,11 +44,21 @@ export default class MainMap extends React.Component {
         error: null,
         isLoaded: false,
         position: [41.390205, 2.154007],
+        mapurl: "https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}",
         data: []
       };
       mqtth("/devices/tracespoly","/devices/tracespoly/500",this);
+
     }
-  componentDidMount() {}
+  componentDidMount() {
+    eventBus.on("setMap", (data) => {
+      console.log(data)
+      this.setState({
+        mapurl: data.map,
+        keyMAP: Math.random()
+      })
+    });
+  }
   componentWillUnmount() {}
 
 
@@ -57,7 +71,7 @@ export default class MainMap extends React.Component {
   //https://leaflet-extras.github.io/leaflet-providers/preview/
   //url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
   render() {
-    const { error, data, isLoaded, items,position } = this.state;
+    const { error, data, isLoaded, items,position,mapurl } = this.state;
     if (error) {
       return <div>Algo fue mal al cargar el componente :( : {error.message}</div>;
     } else if (!isLoaded) {
@@ -72,10 +86,10 @@ export default class MainMap extends React.Component {
     } else {
       return (
         <div>
-          <MapContainer zoomControl={false} className="mainmap" center={position} zoom={10} scrollWheelZoom={true}>
+          <MapContainer key={this.state.keyMAP} zoomControl={false} className="mainmap" center={position} zoom={10} scrollWheelZoom={true}>
             <TileLayer
               attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a>'
-              url="https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}"
+              url={mapurl}
             />
             {
             data.habs.map(item => (
