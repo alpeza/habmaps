@@ -44,7 +44,7 @@ export default class MainMap extends React.Component {
         error: null,
         isLoaded: false,
         position: [41.390205, 2.154007],
-        mapurl: "https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}",
+        mapurl: "https://tiles.stadiamaps.com/tiles/alidade_smooth_dark/{z}/{x}/{y}{r}.png",
         data: []
       };
       mqtth("/devices/tracespoly","/devices/tracespoly/500",this);
