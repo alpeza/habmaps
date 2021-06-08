@@ -145,6 +145,12 @@
   width: 100%;
 }
 
+.payloadind .row{
+   -webkit-flex-wrap: nowrap; 
+   flex-wrap: nowrap;
+}
+
+
 #circli{
   background: rgb(0,0,0);
   background: linear-gradient(180deg, rgba(0,0,0,1) 98%, rgba(255,255,255,0.0) 100%);
@@ -189,6 +195,10 @@
   user-select: none;
 }
 
+
+.Dropdown-menu {
+  position: relative;
+}
 
 /*Mobiles*/
 
@@ -304,7 +314,14 @@
     position: relative;
   }
 
+  .brandpic {
+    display: none;
+  }
 
+  .payloadind .row{
+    -webkit-flex-wrap: wrap; 
+    flex-wrap: wrap;
+ }
 }
 @media all and ( max-width: 720px ) and (orientation:landscape) {
   .mainmap{
@@ -313,6 +330,9 @@
     position: fixed;
   }
   .left, .right, .bottomm{
+    display: none;
+  }
+  .brandpic {
     display: none;
   }
 }

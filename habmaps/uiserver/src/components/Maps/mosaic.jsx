@@ -2,6 +2,7 @@ import React from "react";
 import DevicesList from "components/Maps/devicesListWidget.jsx";
 import SignalsWidget from "components/Maps/signalsWidget.jsx";
 import SelectMapWidget from "components/Maps/selectMapWidget.jsx";
+import BrandingWidget from "components/Maps/brandingWidget.jsx";
 import PayloadWidget from "./payloadWidget";
 export default class Mosaic extends React.Component {
   constructor(props) {
@@ -29,15 +30,16 @@ export default class Mosaic extends React.Component {
                   />
               </div>
             <div className="right">
-                <DevicesList></DevicesList>
                 <SelectMapWidget></SelectMapWidget>
+                <DevicesList></DevicesList>
             </div>
             <div className="bottomm">
                 <PayloadWidget></PayloadWidget>
             </div>
             <div className="top"></div>
               <div className="left">
-                  <SignalsWidget></SignalsWidget>
+                <BrandingWidget></BrandingWidget>
+                <SignalsWidget></SignalsWidget>
               </div>
           </div>
     );
