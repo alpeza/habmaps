@@ -14,7 +14,7 @@ export default class SelectMapWidget extends React.Component {
       this.state = {
         error: null,
         isLoaded: true,
-        maps: [ 'Dark', 'OpenStreet', 'Satelite', 'Stadia'],
+        maps: [ 'OpenStreet', 'Satelite'],
         mapurl: {
                 'Satelite': 'https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}',
                 'OpenStreet' : 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
