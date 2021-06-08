@@ -37,7 +37,7 @@ export default class DevicesList extends React.Component {
       </div>);
     } else {
       return (
-        <div className="mwidget">
+        <div className="mwidget" id="DevicesList">
           <Table className="align-items-center" responsive>
             <thead className="thead-light">
               <tr>
